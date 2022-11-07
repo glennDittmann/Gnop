@@ -1,11 +1,6 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$VBoxContainer/StartButton.grab_focus()
@@ -18,7 +13,8 @@ func _ready():
 
 func _on_StartButton_pressed():
 	print('Pressing start button')
-	get_tree().change_scene("res://Placeholder.tscn")
+	get_tree().change_scene("res://Gonp/Main.tscn")
+	#get_tree().change_scene("res://Placeholder.tscn")
 
 
 func _on_OptionsButton_pressed():
