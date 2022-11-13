@@ -12,25 +12,29 @@ func _ready():
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		print("Mouse moved")
 		$VBoxContainer/StartButton.release_focus()
 		$VBoxContainer/OptionsButton.release_focus()
 		$VBoxContainer/QuitButton.release_focus()
-	elif event is InputEventKey and no_button_has_focus():
+	elif (
+		(Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_up")) 
+		and no_button_has_focus()
+	):
 		$VBoxContainer/QuitButton.grab_focus()
 
 
 func no_button_has_focus() -> bool: 
-	return not $VBoxContainer/StartButton.has_focus() and not $VBoxContainer/OptionsButton.has_focus() and not $VBoxContainer/QuitButton.has_focus()
+	return (
+		not $VBoxContainer/StartButton.has_focus() 
+		and not $VBoxContainer/OptionsButton.has_focus() 
+		and not $VBoxContainer/QuitButton.has_focus()
+	)
 
 
 func _on_StartButton_pressed():
-	print('Pressing start button')
 	get_tree().change_scene("res://Gonp/GonpMain.tscn")
 
 
 func _on_OptionsButton_pressed():
-	print('Pressing options button')
 	get_tree().change_scene("res://Placeholder.tscn")
 	#var options = load('res://scene_path.tscn').instance()
 	#get_tree().current_scene.add_child(options)
