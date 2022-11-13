@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
 var speed := 200
-var move_dir = Vector2()   # implicitly typed variable 
+var n_hits: int = 0
+var move_dir := Vector2()   # implicitly typed variable 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,6 +30,8 @@ func _physics_process(delta):
 	
 	var collision = move_and_collide(move_dir*delta)
 	if collision:
-		print("Ball collided with ", collision.collider.name)
+		print("Ball collided with ", collision.collider.name, "  Speed: ", speed)
+		n_hits += 1
+		speed += n_hits * 5
 		move_dir = move_dir.bounce(collision.normal)
 		
