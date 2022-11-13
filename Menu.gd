@@ -14,7 +14,6 @@ func _ready():
 func _on_StartButton_pressed():
 	print('Pressing start button')
 	get_tree().change_scene("res://Gonp/GonpMain.tscn")
-	#get_tree().change_scene("res://Placeholder.tscn")
 
 
 func _on_OptionsButton_pressed():
