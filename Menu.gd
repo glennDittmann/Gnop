@@ -10,6 +10,19 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func _input(event):
+	if event is InputEventMouseMotion:
+		print("Mouse moved")
+		$VBoxContainer/StartButton.release_focus()
+		$VBoxContainer/OptionsButton.release_focus()
+		$VBoxContainer/QuitButton.release_focus()
+	elif event is InputEventKey and no_button_has_focus():
+		$VBoxContainer/QuitButton.grab_focus()
+
+
+func no_button_has_focus() -> bool: 
+	return not $VBoxContainer/StartButton.has_focus() and not $VBoxContainer/OptionsButton.has_focus() and not $VBoxContainer/QuitButton.has_focus()
+
 
 func _on_StartButton_pressed():
 	print('Pressing start button')
