@@ -1,12 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Gonp/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Gonp/assets/tennis-court.png" type="Texture" id=2]
 [ext_resource path="res://Gonp/Bat.tscn" type="PackedScene" id=3]
-
-[sub_resource type="SegmentShape2D" id=1]
-a = Vector2( 144, -356 )
-b = Vector2( 144, 340 )
 
 [sub_resource type="SegmentShape2D" id=2]
 a = Vector2( -64, 0 )
@@ -16,14 +12,6 @@ b = Vector2( 1088, 0 )
 
 [node name="Court" type="StaticBody2D" parent="."]
 collision_mask = 3
-
-[node name="RightBorder" type="CollisionShape2D" parent="Court"]
-position = Vector2( 880, 300 )
-shape = SubResource( 1 )
-
-[node name="LeftBorder" type="CollisionShape2D" parent="Court"]
-position = Vector2( -144, 300 )
-shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="Court"]
 position = Vector2( 512, 300 )
