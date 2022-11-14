@@ -1,21 +1,27 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Placeholder.gd" type="Script" id=1]
+[ext_resource path="res://assets/background.png" type="Texture" id=2]
+[ext_resource path="res://Themes/UI.tres" type="Theme" id=3]
 
 [node name="Placeholder" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 3 )
 script = ExtResource( 1 )
+
+[node name="Backgroudn" type="Sprite" parent="."]
+position = Vector2( 511.76, 300 )
+scale = Vector2( 8.26194, 10 )
+texture = ExtResource( 2 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -63.5
-margin_top = -42.0
-margin_right = 63.5
-margin_bottom = 42.0
+margin_left = -96.0
+margin_top = 240.0
+margin_right = 104.0
+margin_bottom = 324.0
 text = "      Placeholder
 to be implemented"
 
@@ -24,10 +30,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -51.0
-margin_top = -3.0
-margin_right = 51.0
-margin_bottom = 17.0
-text = "To Main Menu"
+margin_left = -71.0
+margin_top = -11.5
+margin_right = 71.0
+margin_bottom = 11.5
+text = "Back"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

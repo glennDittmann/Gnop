@@ -1,14 +1,17 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Gonp/Ball.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Gonp/assets/tennis-court.png" type="Texture" id=2]
-[ext_resource path="res://Gonp/Bat.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Gnop/Ball.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Gnop/assets/tennis-court.png" type="Texture" id=2]
+[ext_resource path="res://Gnop/Bat.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Gnop/GnopMain.gd" type="Script" id=4]
+[ext_resource path="res://Gnop/assets/Ove Melaa - Italo Unlimited.mp3" type="AudioStream" id=5]
 
 [sub_resource type="SegmentShape2D" id=2]
 a = Vector2( -64, 0 )
 b = Vector2( 1088, 0 )
 
 [node name="GonpMain" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="Court" type="StaticBody2D" parent="."]
 collision_mask = 3
@@ -26,7 +29,7 @@ position = Vector2( 0, 600 )
 shape = SubResource( 2 )
 
 [node name="BatLeft" parent="." instance=ExtResource( 3 )]
-position = Vector2( 88, 296 )
+position = Vector2( 64, 296 )
 speed = 5
 
 [node name="BatRight" parent="." instance=ExtResource( 3 )]
@@ -35,3 +38,7 @@ position = Vector2( 968, 296 )
 [node name="Ball" parent="." instance=ExtResource( 1 )]
 position = Vector2( 512, 304 )
 scale = Vector2( 2, 2 )
+collision_mask = 5
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )

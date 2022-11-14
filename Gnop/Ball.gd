@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
 var speed := 200
-var move_dir = Vector2()   # implicitly typed variable 
+var n_hits: int = 0
+var move_dir := Vector2()   # implicitly typed variable 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,8 +28,16 @@ func _physics_process(delta):
 			move_dir.x = -speed
 		move_dir.y = 0
 	
-	var collision = move_and_collide(move_dir*delta)
+	var collision: KinematicCollision2D = move_and_collide(move_dir * delta)
+	_handle_collision(collision)
+
+
+func _handle_collision(collision: KinematicCollision2D):
 	if collision:
-		print("Ball collided with ", collision.collider.name)
-		move_dir = move_dir.bounce(collision.normal)
-		
+		if collision.collider.is_in_group("bats"):
+			print("Ball collided with ", collision.collider.name, "  Speed: ", speed)
+			n_hits += 1
+			speed += n_hits * 5
+			move_dir = move_dir.bounce(collision.normal)
+		elif collision.collider.is_in_group("game_over_zone"):
+			get_tree().change_scene("res://Menu.tscn")

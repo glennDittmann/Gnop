@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://Gonp/assets/ball.png" type="Texture" id=1]
-[ext_resource path="res://Gonp/Ball.gd" type="Script" id=2]
+[ext_resource path="res://Gnop/assets/ball.png" type="Texture" id=1]
+[ext_resource path="res://Gnop/Ball.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="Ball" type="KinematicBody2D"]
+[node name="Ball" type="KinematicBody2D" groups=["ball"]]
 collision_layer = 2
 script = ExtResource( 2 )
 
