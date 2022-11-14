@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/background.png" type="Texture" id=2]
 [ext_resource path="res://Themes/UI.tres" type="Theme" id=3]
 [ext_resource path="res://Themes/Fonts/chevy-ray-pixel-font/ChevyRay - Bubble Time.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://assets/key.ogg" type="AudioStream" id=5]
 
 [sub_resource type="Theme" id=1]
 
@@ -73,7 +72,6 @@ custom_fonts/font = SubResource( 2 )
 text = "GNOP & MORE"
 
 [node name="UIAudio" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 5 )
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]

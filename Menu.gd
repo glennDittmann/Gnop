@@ -6,6 +6,9 @@ var ui_accept_path: String = "res://assets/swhit.ogg"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$VBoxContainer/StartButton.grab_focus()
+	
+	var sfx_ui_up_down: Resource = load(ui_up_down_path)
+	$UIAudio.stream = sfx_ui_up_down
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
