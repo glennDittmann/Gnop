@@ -34,6 +34,6 @@ margin_left = -71.0
 margin_top = -11.5
 margin_right = 71.0
 margin_bottom = 11.5
-text = "To Main Menu"
+text = "Back"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
