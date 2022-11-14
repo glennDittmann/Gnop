@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tennis-court.png-fc33ce26da2e60597e8f62618df12c6a.stex"
+path="res://.import/bat.png-9a1b6d08ee9a51b82c369d62e6d1d97f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Gonp/assets/tennis-court.png"
-dest_files=[ "res://.import/tennis-court.png-fc33ce26da2e60597e8f62618df12c6a.stex" ]
+source_file="res://Gnop/assets/bat.png"
+dest_files=[ "res://.import/bat.png-9a1b6d08ee9a51b82c369d62e6d1d97f.stex" ]
 
 [params]
 

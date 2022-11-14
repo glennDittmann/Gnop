@@ -31,7 +31,7 @@ func no_button_has_focus() -> bool:
 
 
 func _on_StartButton_pressed():
-	get_tree().change_scene("res://Gonp/GonpMain.tscn")
+	get_tree().change_scene("res://Gnop/GnopMain.tscn")
 
 
 func _on_OptionsButton_pressed():
