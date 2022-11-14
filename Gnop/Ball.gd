@@ -37,5 +37,6 @@ func _handle_collision(collision: KinematicCollision2D):
 		if collision.collider.is_in_group("bats"):
 			print("Ball collided with ", collision.collider.name, "  Speed: ", speed)
 			n_hits += 1
+			GlobalVariables.points += 1
 			speed += n_hits * 5
 			move_dir = move_dir.bounce(collision.normal)
