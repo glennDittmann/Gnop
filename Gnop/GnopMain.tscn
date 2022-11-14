@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Gnop/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Gnop/assets/tennis-court.png" type="Texture" id=2]
@@ -6,10 +6,15 @@
 [ext_resource path="res://Gnop/GnopMain.gd" type="Script" id=4]
 [ext_resource path="res://Gnop/assets/Ove Melaa - Italo Unlimited.mp3" type="AudioStream" id=5]
 [ext_resource path="res://Gnop/OutZone.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Themes/Fonts/chevy-ray-pixel-font/ChevyRay - Bubble Time.ttf" type="DynamicFontData" id=7]
 
 [sub_resource type="SegmentShape2D" id=2]
 a = Vector2( -64, 0 )
 b = Vector2( 1088, 0 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 70
+font_data = ExtResource( 7 )
 
 [node name="GonpMain" type="Node2D"]
 script = ExtResource( 4 )
@@ -47,6 +52,14 @@ stream = ExtResource( 5 )
 
 [node name="RightOutZone" parent="." instance=ExtResource( 6 )]
 position = Vector2( 1008, 0 )
+
+[node name="PointLabel" type="Label" parent="."]
+margin_left = 464.0
+margin_top = 8.0
+margin_right = 506.0
+margin_bottom = 89.0
+custom_fonts/font = SubResource( 3 )
+text = "0"
 
 [connection signal="body_entered" from="LeftOutZone" to="." method="_on_OutZone_body_entered"]
 [connection signal="body_entered" from="RightOutZone" to="." method="_on_OutZone_body_entered"]
