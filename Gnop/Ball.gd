@@ -39,5 +39,3 @@ func _handle_collision(collision: KinematicCollision2D):
 			n_hits += 1
 			speed += n_hits * 5
 			move_dir = move_dir.bounce(collision.normal)
-		elif collision.collider.is_in_group("game_over_zone"):
-			get_tree().change_scene("res://Menu.tscn")
