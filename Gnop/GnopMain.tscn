@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Gnop/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Gnop/assets/tennis-court.png" type="Texture" id=2]
 [ext_resource path="res://Gnop/Bat.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Gnop/GnopMain.gd" type="Script" id=4]
 [ext_resource path="res://Gnop/assets/Ove Melaa - Italo Unlimited.mp3" type="AudioStream" id=5]
+[ext_resource path="res://Gnop/OutZone.tscn" type="PackedScene" id=6]
 
 [sub_resource type="SegmentShape2D" id=2]
 a = Vector2( -64, 0 )
@@ -38,7 +39,14 @@ position = Vector2( 968, 296 )
 [node name="Ball" parent="." instance=ExtResource( 1 )]
 position = Vector2( 512, 304 )
 scale = Vector2( 2, 2 )
-collision_mask = 5
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+
+[node name="LeftOutZone" parent="." instance=ExtResource( 6 )]
+
+[node name="RightOutZone" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1008, 0 )
+
+[connection signal="body_entered" from="LeftOutZone" to="." method="_on_OutZone_body_entered"]
+[connection signal="body_entered" from="RightOutZone" to="." method="_on_OutZone_body_entered"]
