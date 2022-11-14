@@ -1,5 +1,7 @@
 extends Control
 
+var ui_up_down_path: String = "res://assets/key.ogg"
+var ui_accept_path: String = "res://assets/swhit.ogg"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -20,6 +22,13 @@ func _input(event):
 		and no_button_has_focus()
 	):
 		$VBoxContainer/QuitButton.grab_focus()
+		
+	if(Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_up")):
+		$UIAudio.play()
+	elif Input.is_action_just_pressed("ui_accept"):
+		var sfx_accept: Resource = load(ui_accept_path)
+		$UIAudio.stream = sfx_accept
+		$UIAudio.play()
 
 
 func no_button_has_focus() -> bool: 
