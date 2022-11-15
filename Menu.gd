@@ -9,6 +9,8 @@ func _ready():
 	
 	var sfx_ui_up_down: Resource = load(ui_up_down_path)
 	$UIAudio.stream = sfx_ui_up_down
+	
+	GlobalVariables.points = 0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
