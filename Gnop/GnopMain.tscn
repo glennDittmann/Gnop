@@ -13,7 +13,7 @@ b = Vector2( 1088, 0 )
 [node name="GonpMain" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="Court" type="StaticBody2D" parent="."]
+[node name="Court" type="StaticBody2D" parent="." groups=["borders"]]
 collision_mask = 3
 
 [node name="Sprite" type="Sprite" parent="Court"]
