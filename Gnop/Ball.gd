@@ -46,6 +46,7 @@ func _handle_move_up():
 		if move_dir.angle_to(Vector2.LEFT) < -ANGLE_THRESHOLD:
 			move_dir = Vector2.LEFT.rotated(ANGLE_THRESHOLD) * speed
 
+
 func _handle_move_down():
 	var turn_speed = turn_speed_factor * speed
 	if move_dir.x > 0:
@@ -57,6 +58,7 @@ func _handle_move_down():
 		if move_dir.angle_to(Vector2.LEFT) > ANGLE_THRESHOLD:
 			move_dir = Vector2.LEFT.rotated(-ANGLE_THRESHOLD) * speed
 
+
 func _handle_collision(collision: KinematicCollision2D):
 	if collision:
 		print("Ball collided with ", collision.collider.name, "  Speed: ", speed)
@@ -67,3 +69,10 @@ func _handle_collision(collision: KinematicCollision2D):
 			move_dir = move_dir.bounce(collision.normal)
 		if collision.collider.is_in_group("borders"):	
 			move_dir = move_dir.bounce(collision.normal)
+
+
+func explode():
+	move_dir = Vector2.ZERO
+	$AnimatedSprite.play("explode")
+	yield($AnimatedSprite, "animation_finished")
+	hide()

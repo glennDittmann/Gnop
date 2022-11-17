@@ -14,7 +14,7 @@ func _process(delta):
 func _on_OutZone_body_entered(body: Node):
 	if body.is_in_group("ball"):
 		print("Game Over")
-		$Ball.hide()
 		$BatLeft.hide()
 		$BatRight.hide()
+		$Ball.explode()
 		$GameOverHUD.show()
