@@ -18,4 +18,3 @@ func _on_OutZone_body_entered(body: Node):
 		$BatLeft.hide()
 		$BatRight.hide()
 		$GameOverHUD.show()
-		#get_tree().change_scene("res://Menu.tscn")  # change for game over screen
