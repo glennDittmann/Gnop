@@ -1,9 +1,11 @@
 extends KinematicBody2D
 
-var speed := 200
+const MAX_SPEED = 500.0
+const START_SPEED = 200.0
+var speed := START_SPEED
 
 var turn_speed_factor := 0.0003
-var ANGLE_THRESHOLD = PI / 3
+const ANGLE_THRESHOLD = PI / 3
 
 var n_hits: int = 0
 var move_dir := Vector2()   # implicitly typed variable 
@@ -65,8 +67,10 @@ func _handle_collision(collision: KinematicCollision2D):
 		if collision.collider.is_in_group("bats"):
 			n_hits += 1
 			GlobalVariables.points += 1
-			speed += n_hits * 5
+			speed = _get_speed(n_hits)
 			move_dir = move_dir.bounce(collision.normal)
+			# apply new speed after bounce
+			move_dir = move_dir.normalized() * speed
 		if collision.collider.is_in_group("borders"):	
 			move_dir = move_dir.bounce(collision.normal)
 
@@ -76,3 +80,16 @@ func explode():
 	$AnimatedSprite.play("explode")
 	yield($AnimatedSprite, "animation_finished")
 	hide()
+
+func _get_speed(x):
+	# f(x):=-e^-(a*x+x_0)+max_speed
+	# where x_0=ln(1/(max_speed-start_speed), 
+	# s.t. f(0)=start_speed and f(infinity)=MAX_SPEED
+	# a controls how fast the speed increases
+	# thx wolfram: https://www.wolframalpha.com/input?key=&i=solve+-e%5E-%280%2By%29%2Bt%3Ds%2C+y
+	# ist quasi eine an der x und y achse gespiegelte e funktion (vielleicht wär auch ne log möglich)
+	var a = 0.1
+	var x_0 = log(1.0/(MAX_SPEED-START_SPEED))
+	var exponent = -(a*x + x_0)
+	var y = -exp(exponent) + MAX_SPEED
+	return y
