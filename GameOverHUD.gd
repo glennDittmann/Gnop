@@ -26,9 +26,9 @@ func _input(event):
 	):
 		$VBoxContainer/BackButton.grab_focus()
 		
-	if(Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_up")):
+	if( (Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_up")) and visible):
 		$UIAudio.play()
-	elif Input.is_action_just_pressed("ui_accept"):
+	elif Input.is_action_just_pressed("ui_accept") and visible:
 		var sfx_accept: Resource = load(ui_accept_path)
 		$UIAudio.stream = sfx_accept
 		$UIAudio.play()
