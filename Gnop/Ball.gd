@@ -32,10 +32,33 @@ func _physics_process(delta):
 		_handle_move_up()
 	elif(Input.is_action_pressed("move_down")):
 		_handle_move_down()
+	if(Input.is_action_pressed("ui_select")):
+		_slow_down()
+	if(Input.is_action_just_released("ui_select")):
+		_slow_up()
 				
 	var collision: KinematicCollision2D = move_and_collide(move_dir * delta)
 	_handle_collision(collision)
 
+func _slow_down():
+	# slow down ball
+	move_dir = move_dir.normalized() * (speed / 2)
+	# slow down bats
+	var bat_left = get_node("../BatLeft")
+	var bat_right = get_node("../BatRight")
+	for bat in [bat_left, bat_right]:
+		var current_speed = bat.get("start_speed")
+		bat.set_deferred("speed", current_speed / 2)
+
+func _slow_up():
+	# revert slow down of ball and bats
+	move_dir = move_dir.normalized() * speed
+	var bat_left = get_node("../BatLeft")
+	var bat_right = get_node("../BatRight")
+	for bat in [bat_left, bat_right]:
+		var start_speed = bat.get("start_speed")
+		bat.set_deferred("speed", start_speed)
+	
 
 func _handle_move_up():
 	var turn_speed = turn_speed_factor * speed

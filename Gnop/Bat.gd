@@ -3,13 +3,14 @@ extends RigidBody2D
 
 var walking_up: bool = true
 export var speed: int = 10
+var start_speed = speed
 
 const TOP_BOUND = 100
 const BOTTOM_BOUND = 500
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	start_speed = speed
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
