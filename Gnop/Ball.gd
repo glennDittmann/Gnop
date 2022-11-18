@@ -104,15 +104,15 @@ func explode():
 	yield($AnimatedSprite, "animation_finished")
 	hide()
 
-func _get_speed(x):
+func _get_speed(x) -> float:
 	# f(x):=-e^-(a*x+x_0)+max_speed
 	# where x_0=ln(1/(max_speed-start_speed), 
 	# s.t. f(0)=start_speed and f(infinity)=MAX_SPEED
 	# a controls how fast the speed increases
 	# thx wolfram: https://www.wolframalpha.com/input?key=&i=solve+-e%5E-%280%2By%29%2Bt%3Ds%2C+y
 	# ist quasi eine an der x und y achse gespiegelte e funktion (vielleicht wär auch ne log möglich)
-	var a = 0.1
-	var x_0 = log(1.0/(MAX_SPEED-START_SPEED))
-	var exponent = -(a*x + x_0)
-	var y = -exp(exponent) + MAX_SPEED
+	var a: float = 0.1
+	var x_0 := log(1.0/(MAX_SPEED-START_SPEED))
+	var exponent: float = -(a*x + x_0)
+	var y := -exp(exponent) + MAX_SPEED
 	return y
