@@ -28,6 +28,12 @@ config/icon="res://icon.png"
 
 GlobalVariables="*res://GlobalVariables.gd"
 
+[display]
+
+window/handheld/orientation="portrait"
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
 [editor]
 
 version_control_autoload_on_startup=true
