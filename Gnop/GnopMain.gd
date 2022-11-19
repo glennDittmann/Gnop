@@ -22,4 +22,4 @@ func _on_OutZone_body_entered(body: Node):
 		$BatLeft.hide()
 		$BatRight.hide()
 		$Ball.explode()
-		$GameOverHUD.show()
+		$GameOverHUD.activate()

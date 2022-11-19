@@ -40,6 +40,10 @@ func no_button_has_focus() -> bool:
 		and not $VBoxContainer/BackButton.has_focus()
 	)
 
+func activate():
+	show()
+	$VBoxContainer/RetryButton.grab_focus()
+
 
 func _on_RetryButton_pressed():
 	get_tree().change_scene("res://Gnop/GnopMain.tscn")
