@@ -53,7 +53,7 @@ func _slow_down():
 	var bat_right = get_node("../BatRight")
 	for bat in [bat_left, bat_right]:
 		var current_speed = bat.get("start_speed")
-		bat.set_deferred("speed", current_speed / 1)
+		bat.set_deferred("speed", current_speed / 2)
 
 
 func _slow_up():
