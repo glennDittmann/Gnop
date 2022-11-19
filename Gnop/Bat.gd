@@ -2,6 +2,7 @@ extends RigidBody2D
 
 
 var walking_up: bool = true
+export var id: String = ""
 export var speed: int = 10
 var start_speed = speed
 
@@ -23,3 +24,7 @@ func _process(delta):
 		position.y += speed
 		if (position.y > BOTTOM_BOUND):
 			walking_up = true
+
+
+func get_id() -> String:
+	return id
