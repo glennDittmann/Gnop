@@ -10,6 +10,8 @@ const ANGLE_THRESHOLD = PI / 3
 var n_hits: int = 0
 var move_dir := Vector2()   # implicitly typed variable 
 
+var last_bat_hit: String = ""  # remember which bat was hit last time 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	move_dir = Vector2.RIGHT * speed
@@ -89,7 +91,9 @@ func _handle_collision(collision: KinematicCollision2D):
 		print("Ball collided with ", collision.collider.name, "  Speed: ", speed)
 		if collision.collider.is_in_group("bats"):
 			n_hits += 1
-			GlobalVariables.points += 1
+			
+			_add_points(collision.collider)
+			
 			speed = _get_speed(n_hits)
 			move_dir = move_dir.bounce(collision.normal)
 			# apply new speed after bounce
@@ -97,6 +101,14 @@ func _handle_collision(collision: KinematicCollision2D):
 		if collision.collider.is_in_group("borders"):	
 			move_dir = move_dir.bounce(collision.normal)
 
+
+func _add_points(collider: RigidBody2D):
+	if last_bat_hit == "":
+		GlobalVariables.points += 1
+		last_bat_hit = collider.get_id()
+	elif last_bat_hit != collider.get_id(): #hitting a new / the other bat
+		GlobalVariables.points += 1
+		last_bat_hit = collider.get_id()
 
 func explode():
 	move_dir = Vector2.ZERO
