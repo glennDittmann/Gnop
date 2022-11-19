@@ -53,7 +53,7 @@ func _slow_down():
 	var bat_right = get_node("../BatRight")
 	for bat in [bat_left, bat_right]:
 		var current_speed = bat.get("start_speed")
-		bat.set_deferred("speed", current_speed / 2)
+		bat.set_deferred("speed", current_speed / 1)
 
 
 func _slow_up():
@@ -109,6 +109,7 @@ func _handle_collision(collision: KinematicCollision2D):
 func _add_points(collider: RigidBody2D):
 	if last_bat_hit != collider.get_id():  # hitting a new / the other bat
 		GlobalVariables.points += 1
+		$Audio.play()
 		last_bat_hit = collider.get_id()
 
 func explode():
