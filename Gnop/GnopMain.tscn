@@ -37,10 +37,12 @@ shape = SubResource( 2 )
 
 [node name="BatLeft" parent="." instance=ExtResource( 3 )]
 position = Vector2( 64, 296 )
+id = "left"
 speed = 5
 
 [node name="BatRight" parent="." instance=ExtResource( 3 )]
 position = Vector2( 968, 296 )
+id = "right"
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
 position = Vector2( 512, 304 )
