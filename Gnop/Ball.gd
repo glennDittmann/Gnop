@@ -11,6 +11,7 @@ var n_hits: int = 0
 var move_dir := Vector2()   # implicitly typed variable 
 
 var last_bat_hit: String = ""  # remember which bat was hit last time 
+var exploded: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,7 +41,9 @@ func _physics_process(delta):
 		_slow_up()
 				
 	var collision: KinematicCollision2D = move_and_collide(move_dir * delta)
-	_handle_collision(collision)
+	if not exploded:
+		_handle_collision(collision)
+
 
 func _slow_down():
 	# slow down ball
@@ -51,6 +54,7 @@ func _slow_down():
 	for bat in [bat_left, bat_right]:
 		var current_speed = bat.get("start_speed")
 		bat.set_deferred("speed", current_speed / 2)
+
 
 func _slow_up():
 	# revert slow down of ball and bats
@@ -109,6 +113,7 @@ func _add_points(collider: RigidBody2D):
 
 func explode():
 	move_dir = Vector2.ZERO
+	exploded = true
 	$AnimatedSprite.play("explode")
 	yield($AnimatedSprite, "animation_finished")
 	hide()
