@@ -116,6 +116,11 @@ func explode():
 	move_dir = Vector2.ZERO
 	exploded = true
 	$AnimatedSprite.play("explode")
+	
+	var sfx_explode: Resource = load(GlobalVariables.explode_path)
+	$Audio.stream = sfx_explode
+	$Audio.play()
+	
 	yield($AnimatedSprite, "animation_finished")
 	hide()
 
