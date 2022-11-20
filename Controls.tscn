@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Placeholder.gd" type="Script" id=1]
+[ext_resource path="res://assets/background.png" type="Texture" id=2]
+[ext_resource path="res://Themes/UI.tres" type="Theme" id=3]
+[ext_resource path="res://Themes/Fonts/chevy-ray-pixel-font/ChevyRay - Bubble Time.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/swhit.ogg" type="AudioStream" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 4 )
+
+[node name="Controls" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+
+[node name="Backgroudn" type="Sprite" parent="."]
+position = Vector2( 511.76, 300 )
+scale = Vector2( 8.26194, 10 )
+texture = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -152.0
+margin_top = -84.0
+margin_right = 152.0
+margin_bottom = 42.0
+text = "W / up key: move ball up
+
+S / down key: move ball down
+
+space: slow-mo mode
+
+esc: quit "
+
+[node name="BackButton" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -72.0
+margin_top = 100.0
+margin_right = 70.0
+margin_bottom = 123.0
+text = "Back"
+
+[node name="TtileLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -184.0
+margin_top = 72.0
+margin_right = 191.0
+margin_bottom = 173.0
+custom_fonts/font = SubResource( 1 )
+text = "Controls"
+
+[node name="UIAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]

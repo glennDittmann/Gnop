@@ -20,7 +20,7 @@ func _ready():
 func _input(event):
 	if event is InputEventMouseMotion:
 		$VBoxContainer/StartButton.release_focus()
-		$VBoxContainer/OptionsButton.release_focus()
+		$VBoxContainer/ControlsButton.release_focus()
 		$VBoxContainer/QuitButton.release_focus()
 	elif (
 		(Input.is_action_pressed("ui_down") or Input.is_action_pressed("ui_up")) 
@@ -39,7 +39,7 @@ func _input(event):
 func no_button_has_focus() -> bool: 
 	return (
 		not $VBoxContainer/StartButton.has_focus() 
-		and not $VBoxContainer/OptionsButton.has_focus() 
+		and not $VBoxContainer/ControlsButton.has_focus() 
 		and not $VBoxContainer/QuitButton.has_focus()
 	)
 
@@ -48,8 +48,8 @@ func _on_StartButton_pressed():
 	get_tree().change_scene("res://Gnop/GnopMain.tscn")
 
 
-func _on_OptionsButton_pressed():
-	get_tree().change_scene("res://Placeholder.tscn")
+func _on_ControlsButton_pressed():
+	get_tree().change_scene("res://Controls.tscn")
 	#var options = load('res://scene_path.tscn').instance()
 	#get_tree().current_scene.add_child(options)
 

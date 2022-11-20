@@ -11,9 +11,9 @@ func _ready():
 	$BackButton.grab_focus()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _input(event):
+	if Input.is_action_just_pressed("ui_accept"):
+		$UIAudio.play()
 
 
 func _on_BackButton_pressed():
