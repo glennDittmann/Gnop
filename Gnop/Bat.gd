@@ -28,3 +28,9 @@ func _process(delta):
 
 func get_id() -> String:
 	return id
+	
+
+func blink():
+	$AnimatedSprite.play("default")
+	$AnimatedSprite.set_frame(0)
+	

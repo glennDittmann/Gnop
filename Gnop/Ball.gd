@@ -95,11 +95,13 @@ func _handle_collision(collision: KinematicCollision2D):
 		if (collision.collider.is_in_group("bats")
 			and last_bat_hit != collision.collider.get_id()
 		):  # hitting a new / the other bat
+			collision.collider.blink()
 			print("Ball collided with ", collision.collider.name, "  Speed: ", speed)
 			n_hits += 1
 		
 			_add_points(collision.collider)
-		
+			
+			
 			speed = _get_speed(n_hits)
 			move_dir = move_dir.bounce(collision.normal)
 			# apply new speed after bounce
