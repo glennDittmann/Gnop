@@ -92,22 +92,25 @@ func _handle_move_down():
 
 func _handle_collision(collision: KinematicCollision2D):
 	if collision:
-		print("Ball collided with ", collision.collider.name, "  Speed: ", speed)
-		if collision.collider.is_in_group("bats"):
+		if (collision.collider.is_in_group("bats")
+			and last_bat_hit != collision.collider.get_id()
+		):  # hitting a new / the other bat
+			print("Ball collided with ", collision.collider.name, "  Speed: ", speed)
 			n_hits += 1
-			
+		
 			_add_points(collision.collider)
-			
+		
 			speed = _get_speed(n_hits)
 			move_dir = move_dir.bounce(collision.normal)
 			# apply new speed after bounce
 			move_dir = move_dir.normalized() * speed
-		if collision.collider.is_in_group("borders"):	
+			
+			last_bat_hit = collision.collider.get_id()
+		elif collision.collider.is_in_group("borders"):	
 			move_dir = move_dir.bounce(collision.normal)
 
 
 func _add_points(collider: RigidBody2D):
-	if last_bat_hit != collider.get_id():  # hitting a new / the other bat
 		GlobalVariables.points += 1
 		$Audio.play()
 		last_bat_hit = collider.get_id()
