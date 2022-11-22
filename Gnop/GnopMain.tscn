@@ -82,5 +82,8 @@ value = 100.0
 texture_progress = SubResource( 4 )
 fill_mode = 3
 
+[node name="PowerUpTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="LeftOutZone" to="." method="_on_OutZone_body_entered"]
 [connection signal="body_entered" from="RightOutZone" to="." method="_on_OutZone_body_entered"]
+[connection signal="timeout" from="PowerUpTimer" to="." method="_on_PowerUpTimer_timeout"]

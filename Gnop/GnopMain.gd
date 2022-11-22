@@ -10,6 +10,8 @@ func _ready():
 	
 	GlobalVariables.points = 0
 	$AudioPlayer.play()
+	
+	_start_powerup_timer()
 
 
 func _process(delta):
@@ -23,3 +25,14 @@ func _on_OutZone_body_entered(body: Node):
 		$BatRight.hide()
 		$Ball.explode()
 		$GameOverHUD.activate()
+
+
+func _start_powerup_timer():
+	var duration = randi() % 3 + 4
+	$PowerUpTimer.start(duration)
+	print("powerup timer started with ", duration, " seconds")
+
+
+func _on_PowerUpTimer_timeout():
+	# TODO create powerup
+	_start_powerup_timer()
