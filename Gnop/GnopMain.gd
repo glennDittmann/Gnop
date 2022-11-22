@@ -1,5 +1,6 @@
 extends Node2D
 
+export (PackedScene) var powerup_scene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,5 +35,10 @@ func _start_powerup_timer():
 
 
 func _on_PowerUpTimer_timeout():
-	# TODO create powerup
+	# TODO make better random position
+	var powerup = powerup_scene.instance()
+	var y = randi() % 200 + 200
+	var x = randi() % 600 + 200
+	powerup.position = Vector2(x, y)
+	add_child(powerup)
 	_start_powerup_timer()

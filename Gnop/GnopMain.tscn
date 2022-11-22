@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Gnop/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Gnop/assets/tennis-court.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Gnop/OutZone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Themes/Fonts/chevy-ray-pixel-font/ChevyRay - Bubble Time.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://GameOverHUD.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Gnop/powerup.tscn" type="PackedScene" id=9]
 
 [sub_resource type="SegmentShape2D" id=2]
 a = Vector2( -64, 0 )
@@ -23,6 +24,7 @@ height = 45
 
 [node name="GonpMain" type="Node2D"]
 script = ExtResource( 4 )
+powerup_scene = ExtResource( 9 )
 
 [node name="Court" type="StaticBody2D" parent="." groups=["borders"]]
 collision_mask = 3
