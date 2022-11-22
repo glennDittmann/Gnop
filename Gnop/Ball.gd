@@ -13,15 +13,20 @@ var move_dir := Vector2()   # implicitly typed variable
 var last_bat_hit: String = ""  # remember which bat was hit last time 
 var exploded: bool = false
 
+# some vars for easy access to nodes
+var slowdown_bar: TextureProgress
+var bat_left: RigidBody2D
+var bat_right: RigidBody2D
+
+const slow_factor = 2
+const slowdown_bar_drain_speed = 25 # controls how fast slowdown bar drains
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	move_dir = Vector2.RIGHT * speed
-	print("RIGHT with x axis ", Vector2.RIGHT.angle())
-	print("RIGHT+30° with x axis ", rad2deg(Vector2.RIGHT.rotated(PI/6).angle()))
-	print("RIGHT-30° with x axis ", rad2deg(Vector2.RIGHT.rotated(-PI/6).angle()))
-	print("LEFT with leftx axis ", rad2deg(Vector2.LEFT.angle_to(Vector2.LEFT)))
-	print("LEFT+30° with left x axis ", rad2deg(Vector2.LEFT.rotated(PI/6).angle_to(Vector2.LEFT)))
-	print("LEFT-30° with left x axis ", rad2deg(Vector2.LEFT.rotated(-PI/6).angle_to(Vector2.LEFT)))
+	slowdown_bar = get_node("../SlowdownBar")
+	bat_left = get_node("../BatLeft")
+	bat_right = get_node("../BatRight")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -36,7 +41,7 @@ func _physics_process(delta):
 	elif(Input.is_action_pressed("move_down")):
 		_handle_move_down()
 	if(Input.is_action_pressed("ui_select")):
-		_slow_down()
+		_slow_down(delta)
 	if(Input.is_action_just_released("ui_select")):
 		_slow_up()
 				
@@ -45,22 +50,23 @@ func _physics_process(delta):
 		_handle_collision(collision)
 
 
-func _slow_down():
-	# slow down ball
-	move_dir = move_dir.normalized() * (speed / 2)
-	# slow down bats
-	var bat_left = get_node("../BatLeft")
-	var bat_right = get_node("../BatRight")
-	for bat in [bat_left, bat_right]:
-		var current_speed = bat.get("start_speed")
-		bat.set_deferred("speed", current_speed / 2)
+func _slow_down(delta):
+	var cur_val = slowdown_bar.get_value()
+	if cur_val > 0:
+		# slow down ball
+		move_dir = move_dir.normalized() * (speed / slow_factor)
+		# slow down bats
+		for bat in [bat_left, bat_right]:
+			var current_speed = bat.get("start_speed")
+			bat.set_deferred("speed", current_speed / slow_factor)
+		slowdown_bar.set_value(cur_val - delta * slowdown_bar_drain_speed)
+	else:
+		_slow_up()
 
 
 func _slow_up():
 	# revert slow down of ball and bats
 	move_dir = move_dir.normalized() * speed
-	var bat_left = get_node("../BatLeft")
-	var bat_right = get_node("../BatRight")
 	for bat in [bat_left, bat_right]:
 		var start_speed = bat.get("start_speed")
 		bat.set_deferred("speed", start_speed)
