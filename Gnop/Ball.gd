@@ -45,8 +45,8 @@ func _physics_process(delta):
 	if(Input.is_action_just_released("ui_select")):
 		_slow_up()
 				
-	var collision: KinematicCollision2D = move_and_collide(move_dir * delta)
 	if not exploded:
+		var collision: KinematicCollision2D = move_and_collide(move_dir * delta)
 		_handle_collision(collision)
 
 
