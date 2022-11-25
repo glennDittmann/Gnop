@@ -8,7 +8,8 @@ func _ready():
 
 
 func _on_Powerup_body_entered(body):
-	# TODO handle collision
+	hide()
+	# Must be deferred as we can't change physics properties on a physics callback.
+	$CollisionShape2D.set_deferred("disabled", true)
 	emit_signal("powerup_hit")
-	print("powerup hit")
-	pass # Replace with function body.
+	queue_free()
