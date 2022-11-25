@@ -13,10 +13,6 @@ func _ready():
 	screen_size = $Court.get_viewport_rect().size
 	print("screen_size: ", screen_size)
 	slowdown_bar_increase_amount = $SlowdownBar.get_max() * POWERUP_INCREASE_RATE
-	# disable left collision segment for left bat and right segment for right bat
-	# otherwise it can get stuck between them
-	$BatLeft.get_node("LeftBorder").set_deferred("disabled", true)
-	$BatRight.get_node("RightBorder").set_deferred("disabled", true)
 	
 	GlobalVariables.points = 0
 	$AudioPlayer.play()
