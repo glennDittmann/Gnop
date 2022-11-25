@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Gnop/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Gnop/assets/tennis-court.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Themes/Fonts/chevy-ray-pixel-font/ChevyRay - Bubble Time.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://GameOverHUD.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Gnop/powerup.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Gnop/assets/powerup_consume.wav" type="AudioStream" id=10]
 
 [sub_resource type="SegmentShape2D" id=2]
 a = Vector2( -64, 0 )
@@ -88,6 +89,10 @@ fill_mode = 3
 
 [node name="PowerUpTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="PowerupConsumeSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 10 )
+volume_db = 1.238
 
 [connection signal="body_entered" from="LeftOutZone" to="." method="_on_OutZone_body_entered"]
 [connection signal="body_entered" from="RightOutZone" to="." method="_on_OutZone_body_entered"]

@@ -55,6 +55,7 @@ func _on_PowerUpTimer_timeout():
 
 func on_powerup_hit():
 	# increase slowdown bar and restart power up timer
+	$PowerupConsumeSound.play()
 	var new_val = $SlowdownBar.get_value() + slowdown_bar_increase_amount
 	$SlowdownBar.set_value(new_val)
 	_start_powerup_timer()
