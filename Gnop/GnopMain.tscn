@@ -4,7 +4,7 @@
 [ext_resource path="res://Gnop/assets/tennis-court.png" type="Texture" id=2]
 [ext_resource path="res://Gnop/Bat.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Gnop/GnopMain.gd" type="Script" id=4]
-[ext_resource path="res://Gnop/assets/Ove Melaa - Italo Unlimited.mp3" type="AudioStream" id=5]
+[ext_resource path="res://assets/4refreng.mp3" type="AudioStream" id=5]
 [ext_resource path="res://Gnop/OutZone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Themes/Fonts/chevy-ray-pixel-font/ChevyRay - Bubble Time.ttf" type="DynamicFontData" id=7]
 [ext_resource path="res://Gnop/powerup.tscn" type="PackedScene" id=9]

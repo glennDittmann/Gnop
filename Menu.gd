@@ -9,6 +9,7 @@ func _ready():
 	
 	var sfx_ui_up_down: Resource = load(ui_up_down_path)
 	$UIAudio.stream = sfx_ui_up_down
+	$BackgroundAudio.play()
 	
 	GlobalVariables.points = 0
 
