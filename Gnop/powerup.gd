@@ -4,6 +4,7 @@ signal powerup_hit
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$AnimatedSprite.play("default")
 	pass # Replace with function body.
 
 
