@@ -116,6 +116,7 @@ func _handle_collision(collision: KinematicCollision2D):
 			
 			last_bat_hit = collision.collider.get_id()
 		elif collision.collider.is_in_group("borders"):	
+			$BorderCollideAudio.play()
 			move_dir = move_dir.bounce(collision.normal)
 
 

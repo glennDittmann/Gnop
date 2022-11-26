@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Gnop/assets/ball.png" type="Texture" id=1]
 [ext_resource path="res://Gnop/Ball.gd" type="Script" id=2]
 [ext_resource path="res://Gnop/assets/explosion-Sheet.png" type="Texture" id=3]
 [ext_resource path="res://Gnop/assets/potpickup.ogg" type="AudioStream" id=4]
+[ext_resource path="res://assets/01.ogg" type="AudioStream" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -66,3 +67,6 @@ animation = "ball"
 
 [node name="Audio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
+
+[node name="BorderCollideAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
