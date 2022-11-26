@@ -14,7 +14,7 @@ var last_bat_hit: String = ""  # remember which bat was hit last time
 var exploded: bool = false
 
 # some vars for easy access to nodes
-var slowdown_bar: TextureProgress
+var slow_down_bar: ProgressBar
 var bat_left: RigidBody2D
 var bat_right: RigidBody2D
 
@@ -24,7 +24,7 @@ const slowdown_bar_drain_speed = 25 # controls how fast slowdown bar drains
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	move_dir = Vector2.RIGHT * speed
-	slowdown_bar = get_node("../SlowdownBar")
+	slow_down_bar = get_node("../SlowDownBar") 
 	bat_left = get_node("../BatLeft")
 	bat_right = get_node("../BatRight")
 
@@ -51,7 +51,7 @@ func _physics_process(delta):
 
 
 func _slow_down(delta):
-	var cur_val = slowdown_bar.get_value()
+	var cur_val = slow_down_bar.get_value()
 	if cur_val > 0:
 		# slow down ball
 		move_dir = move_dir.normalized() * (speed / slow_factor)
@@ -59,7 +59,8 @@ func _slow_down(delta):
 		for bat in [bat_left, bat_right]:
 			var current_speed = bat.get("start_speed")
 			bat.set_deferred("speed", current_speed / slow_factor)
-		slowdown_bar.set_value(cur_val - delta * slowdown_bar_drain_speed)
+
+		slow_down_bar.set_value(cur_val - delta * slowdown_bar_drain_speed)
 	else:
 		_slow_up()
 

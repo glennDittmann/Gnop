@@ -12,7 +12,7 @@ func _ready():
 	randomize()
 	screen_size = $Court.get_viewport_rect().size
 	print("screen_size: ", screen_size)
-	slowdown_bar_increase_amount = $SlowdownBar.get_max() * POWERUP_INCREASE_RATE
+	slowdown_bar_increase_amount = $SlowDownBar.get_max() * POWERUP_INCREASE_RATE
 	
 	GlobalVariables.points = 0
 	$AudioPlayer.play()
@@ -56,6 +56,6 @@ func _on_PowerUpTimer_timeout():
 func on_powerup_hit():
 	# increase slowdown bar and restart power up timer
 	$PowerupConsumeSound.play()
-	var new_val = $SlowdownBar.get_value() + slowdown_bar_increase_amount
-	$SlowdownBar.set_value(new_val)
+	var new_val = $SlowDownBar.get_value() + slowdown_bar_increase_amount
+	$SlowDownBar.set_value(new_val)
 	_start_powerup_timer()

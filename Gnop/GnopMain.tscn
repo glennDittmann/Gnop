@@ -10,6 +10,7 @@
 [ext_resource path="res://GameOverHUD.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Gnop/powerup.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Gnop/assets/powerup_consume.wav" type="AudioStream" id=10]
+[ext_resource path="res://Themes/UI.tres" type="Theme" id=11]
 
 [sub_resource type="SegmentShape2D" id=2]
 a = Vector2( -64, 0 )
@@ -18,10 +19,6 @@ b = Vector2( 1088, 0 )
 [sub_resource type="DynamicFont" id=3]
 size = 70
 font_data = ExtResource( 7 )
-
-[sub_resource type="GradientTexture2D" id=4]
-width = 20
-height = 45
 
 [node name="GonpMain" type="Node2D"]
 script = ExtResource( 4 )
@@ -77,15 +74,13 @@ text = "0"
 [node name="GameOverHUD" parent="." instance=ExtResource( 8 )]
 visible = false
 
-[node name="SlowdownBar" type="TextureProgress" parent="."]
-margin_left = 481.0
-margin_top = 12.0
-margin_right = 545.0
-margin_bottom = 76.0
-step = 0.01
+[node name="SlowDownBar" type="ProgressBar" parent="."]
+margin_left = 368.0
+margin_top = 16.0
+margin_right = 496.0
+margin_bottom = 33.0
+theme = ExtResource( 11 )
 value = 100.0
-texture_progress = SubResource( 4 )
-fill_mode = 3
 
 [node name="PowerUpTimer" type="Timer" parent="."]
 one_shot = true
