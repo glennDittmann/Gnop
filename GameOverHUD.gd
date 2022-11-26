@@ -1,6 +1,5 @@
 extends Control
 
-
 var ui_up_down_path: String = "res://assets/key.ogg"
 var ui_accept_path: String = "res://assets/swhit.ogg"
 
@@ -13,7 +12,8 @@ func _ready():
 	
 	activate(GlobalVariables.high_score, GlobalVariables.second_score,
 			 GlobalVariables.third_score, GlobalVariables.points)
-
+	
+	$GameOverSound.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
