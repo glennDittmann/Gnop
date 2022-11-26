@@ -1,19 +1,30 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Themes/Fonts/chevy-ray-pixel-font/ChevyRay - Bubble Time.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Themes/UI.tres" type="Theme" id=2]
 [ext_resource path="res://GameOverHUD.gd" type="Script" id=3]
 [ext_resource path="res://assets/key.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Themes/Fonts/chevy-ray-pixel-font/ChevyRay - Skullboy.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/background.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 80
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 39
+font_data = ExtResource( 5 )
 
 [node name="GameOverHUD" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 2 )
 script = ExtResource( 3 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 512, 300 )
+scale = Vector2( 8.25806, 10 )
+texture = ExtResource( 6 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = 336.0
@@ -41,6 +52,17 @@ margin_right = 96.0
 margin_bottom = 50.0
 focus_neighbour_bottom = NodePath("../RetryButton")
 text = "Back"
+
+[node name="ScoreLabel" type="Label" parent="."]
+margin_left = 424.0
+margin_top = 336.0
+margin_right = 601.0
+margin_bottom = 391.0
+custom_fonts/font = SubResource( 2 )
+text = "High Score: 29
+2nd: 13 
+3rd: 9
+Your Score:  7 "
 
 [node name="UIAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )

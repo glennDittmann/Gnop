@@ -10,6 +10,10 @@ func _ready():
 	
 	var sfx_ui_up_down: Resource = load(ui_up_down_path)
 	$UIAudio.stream = sfx_ui_up_down
+	
+	activate(GlobalVariables.high_score, GlobalVariables.second_score,
+			 GlobalVariables.third_score, GlobalVariables.points)
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,13 +38,18 @@ func _input(event):
 		$UIAudio.play()
 
 
+func _update_score_label(high_score: int, second_score: int, third_score: int, score: int) -> void:
+	$ScoreLabel.text = "High Score: " + str(high_score) + "\n2nd: " + str(second_score) + "\n3rd: " + str(third_score) + "\nYour Score: " + str(score)
+
+
 func no_button_has_focus() -> bool: 
 	return (
 		not $VBoxContainer/RetryButton.has_focus() 
 		and not $VBoxContainer/BackButton.has_focus()
 	)
 
-func activate():
+func activate(high_score: int, second_score: int, third_score: int, score: int):
+	_update_score_label(high_score, second_score, third_score, score)
 	show()
 	$VBoxContainer/RetryButton.grab_focus()
 
@@ -51,5 +60,3 @@ func _on_RetryButton_pressed():
 
 func _on_BackButton_pressed():
 	get_tree().change_scene("res://Menu.tscn")
-	#var options = load('res://scene_path.tscn').instance()
-	#get_tree().current_scene.add_child(options)

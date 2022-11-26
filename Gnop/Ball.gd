@@ -103,7 +103,7 @@ func _handle_collision(collision: KinematicCollision2D):
 			and last_bat_hit != collision.collider.get_id()
 		):  # hitting a new / the other bat
 			collision.collider.blink()
-			print("Ball collided with ", collision.collider.name, "  Speed: ", speed)
+			#print("Ball collided with ", collision.collider.name, "  Speed: ", speed)
 			n_hits += 1
 		
 			_add_points(collision.collider)
