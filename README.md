@@ -3,11 +3,13 @@ Submission for the Game Off 2022
 
 ### Credtis
 #### Programming
-Alexander Dittmann, Glenn Dittmann
+ - Alexander Dittmann
+ - Glenn Dittmann
 #### Pixel Art
-Glenn Dittmann
+ - Glenn Dittmann
 #### Font Design
-Chevy Ray
+ - Chevy Ray
 #### Sound Design
-Ove Melaa
+ - Lucas Milzkott
+ - Ove Melaa
 
