@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Placeholder.gd" type="Script" id=1]
 [ext_resource path="res://assets/background.png" type="Texture" id=2]
 [ext_resource path="res://Themes/UI.tres" type="Theme" id=3]
 [ext_resource path="res://Themes/Fonts/chevy-ray-pixel-font/ChevyRay - Bubble Time.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/swhit.ogg" type="AudioStream" id=5]
+[ext_resource path="res://assets/1intro.mp3" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -61,5 +62,8 @@ text = "Controls"
 
 [node name="UIAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+
+[node name="ControlsTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 
 [connection signal="pressed" from="BackButton" to="." method="_on_BackButton_pressed"]
