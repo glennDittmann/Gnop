@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/6break.mp3-9c6739293650f22f03337997a6fb0774.mp3str"
+
+[deps]
+
+source_file="res://assets/6break.mp3"
+dest_files=[ "res://.import/6break.mp3-9c6739293650f22f03337997a6fb0774.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
