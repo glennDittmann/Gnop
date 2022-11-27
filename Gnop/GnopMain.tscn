@@ -85,6 +85,7 @@ one_shot = true
 stream = ExtResource( 10 )
 volume_db = 1.238
 
+[connection signal="visibility_changed" from="Ball" to="." method="_on_Ball_visibility_changed"]
 [connection signal="body_entered" from="LeftOutZone" to="." method="_on_OutZone_body_entered"]
 [connection signal="body_entered" from="RightOutZone" to="." method="_on_OutZone_body_entered"]
 [connection signal="timeout" from="PowerUpTimer" to="." method="_on_PowerUpTimer_timeout"]

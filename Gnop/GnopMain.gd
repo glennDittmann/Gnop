@@ -51,8 +51,8 @@ func _on_OutZone_body_entered(body: Node):
 		GlobalVariables.second_score = _high_score_save.second_score
 		GlobalVariables.third_score = _high_score_save.third_score
 		_high_score_save.write_highscore()
-		
-		get_tree().change_scene("res://GameOverHUD.tscn")
+		$Ball.explode()
+		#get_tree().change_scene("res://GameOverHUD.tscn")
 
 
 func _start_powerup_timer():
@@ -81,3 +81,11 @@ func on_powerup_hit():
 	var new_val = $SlowDownBar.get_value() + slowdown_bar_increase_amount
 	$SlowDownBar.set_value(new_val)
 	_start_powerup_timer()
+
+
+func _on_Ball_visibility_changed():
+	# in _on_OutZone_body_entered(), i.e. game over, Ball.explode() gets called
+	# which plays the explode animation and then hides the ball
+	# thus we can then change to the game over screen
+	if not $Ball.visible:
+		get_tree().change_scene("res://GameOverHUD.tscn")
