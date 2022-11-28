@@ -2,7 +2,7 @@ extends Node2D
 
 export (PackedScene) var powerup_scene
 
-const POWERUP_INCREASE_RATE = 0.5
+const POWERUP_INCREASE_RATE = 0.1
 var slowdown_bar_increase_amount
 
 var powerup: Area2D
