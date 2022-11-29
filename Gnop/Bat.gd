@@ -10,6 +10,10 @@ var start_speed = speed
 
 const TOP_BOUND = 100
 const BOTTOM_BOUND = 500
+const MIN_SPEED: int = 1
+const MAX_SPEED: int = 15
+const LINEAR_INCREASE := 0
+const LINEAR_DECREASE := 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,3 +42,34 @@ func blink():
 	$AnimatedSprite.play("default")
 	$AnimatedSprite.set_frame(0)
 	
+
+func _choose_next_movement():
+	pass
+
+
+func _linear_speed_increase(increase_amount: int):
+	if speed + increase_amount > MAX_SPEED:
+		speed = MAX_SPEED
+	else:
+		speed += increase_amount
+
+
+func _linear_speed_decrease(decrease_amount: int):
+	if speed - decrease_amount < MIN_SPEED:
+		speed = MIN_SPEED
+	else:
+		speed -= decrease_amount
+
+
+func _on_MovementTimer_timeout():
+	print("Bat with ID: " + id + " waited for 5 secs.")
+	var move_update_method: int = randi() % 2  # 0 or 1
+	var change_amount := randi() % 5  # 0, 1, 2, 3 or 4
+	
+	if move_update_method == LINEAR_INCREASE:
+		print("\tchoosing linear increase (" + str(move_update_method) + ")")
+		_linear_speed_increase(change_amount)
+	elif move_update_method == LINEAR_DECREASE:
+		print("\tchoosing linear decrease (" + str(move_update_method) + ")")
+		_linear_speed_decrease(change_amount)
+	print()

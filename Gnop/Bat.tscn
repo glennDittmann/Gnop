@@ -48,3 +48,9 @@ shape = SubResource( 1 )
 position = Vector2( 9.53674e-07, 7.62939e-06 )
 scale = Vector2( 4, 9.45455 )
 frames = SubResource( 4 )
+
+[node name="MovementTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="MovementTimer" to="." method="_on_MovementTimer_timeout"]
