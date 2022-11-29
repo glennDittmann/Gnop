@@ -79,9 +79,10 @@ func _on_MovementTimer_timeout():
 	var change_amount := randi() % 5  # 0, 1, 2, 3 or 4
 	
 	if move_update_method == LINEAR_INCREASE:
-		print("\tchoosing linear increase (" + str(move_update_method) + ")")
+		print("\tchoosing linear increase (" + str(change_amount) + ")")
 		_linear_speed_increase(change_amount)
 	elif move_update_method == LINEAR_DECREASE:
-		print("\tchoosing linear decrease (" + str(move_update_method) + ")")
+		print("\tchoosing linear decrease (" + str(change_amount) + ")")
 		_linear_speed_decrease(change_amount)
+	print("Speed now: " + str(speed))
 	print()
