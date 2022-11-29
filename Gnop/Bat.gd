@@ -84,5 +84,5 @@ func _on_MovementTimer_timeout():
 	elif move_update_method == LINEAR_DECREASE:
 		print("\tchoosing linear decrease (" + str(change_amount) + ")")
 		_linear_speed_decrease(change_amount)
-	print("Speed now: " + str(speed))
+	print("\tSpeed now: " + str(speed))
 	print()
