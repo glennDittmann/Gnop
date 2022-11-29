@@ -47,6 +47,7 @@ disable_left_border = true
 [node name="BatRight" parent="." instance=ExtResource( 3 )]
 position = Vector2( 968, 296 )
 id = "right"
+speed = 5
 disable_right_border = true
 
 [node name="Ball" parent="." instance=ExtResource( 1 )]
