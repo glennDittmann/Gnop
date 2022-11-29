@@ -18,6 +18,9 @@ const LINEAR_DECREASE := 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	start_speed = speed
+	
+	_randomify_walk_dir()
+	
 	$LeftBorder.set_disabled(disable_left_border)
 	$RightBorder.set_disabled(disable_right_border)
 
@@ -42,6 +45,15 @@ func blink():
 	$AnimatedSprite.play("default")
 	$AnimatedSprite.set_frame(0)
 	
+
+
+func _randomify_walk_dir():
+	var walking_dir := randi() % 2
+	if walking_dir == 0:
+		walking_up = false
+	elif walking_dir == 1:
+		walking_up = true
+
 
 func _choose_next_movement():
 	pass
