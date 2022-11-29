@@ -74,6 +74,7 @@ stream = ExtResource( 4 )
 
 [node name="GameOverSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
+volume_db = -10.0
 
 [node name="GameOverTheme" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
