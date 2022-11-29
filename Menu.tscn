@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/background.png" type="Texture" id=2]
 [ext_resource path="res://Themes/UI.tres" type="Theme" id=3]
 [ext_resource path="res://Themes/Fonts/chevy-ray-pixel-font/ChevyRay - Bubble Time.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/2drums&bass.mp3" type="AudioStream" id=5]
+[ext_resource path="res://assets/ui-up-down2.mp3" type="AudioStream" id=6]
 
 [sub_resource type="Theme" id=1]
 
@@ -79,6 +80,7 @@ custom_fonts/font = SubResource( 2 )
 text = "G N O P"
 
 [node name="UIAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
 
 [node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )

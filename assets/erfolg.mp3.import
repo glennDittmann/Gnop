@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/erfolg.mp3-f0d2cfb88bb4a60e18fe4b5eb0990635.mp3str"
+
+[deps]
+
+source_file="res://assets/erfolg.mp3"
+dest_files=[ "res://.import/erfolg.mp3-f0d2cfb88bb4a60e18fe4b5eb0990635.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

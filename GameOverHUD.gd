@@ -1,6 +1,6 @@
 extends Control
 
-var ui_up_down_path: String = "res://assets/key.ogg"
+var ui_up_down_path: String = "res://assets/ui-up-down2.mp3"
 var ui_accept_path: String = "res://assets/swhit.ogg"
 
 # Called when the node enters the scene tree for the first time.

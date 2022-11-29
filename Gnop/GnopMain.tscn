@@ -7,8 +7,8 @@
 [ext_resource path="res://assets/4refreng.mp3" type="AudioStream" id=5]
 [ext_resource path="res://Gnop/OutZone.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Themes/Fonts/chevy-ray-pixel-font/ChevyRay - Bubble Time.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/power-up.mp3" type="AudioStream" id=8]
 [ext_resource path="res://Gnop/powerup.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Gnop/assets/powerup_consume.wav" type="AudioStream" id=10]
 [ext_resource path="res://Themes/UI.tres" type="Theme" id=11]
 
 [sub_resource type="SegmentShape2D" id=2]
@@ -83,7 +83,7 @@ value = 100.0
 one_shot = true
 
 [node name="PowerupConsumeSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 10 )
+stream = ExtResource( 8 )
 volume_db = 1.238
 
 [connection signal="visibility_changed" from="Ball" to="." method="_on_Ball_visibility_changed"]

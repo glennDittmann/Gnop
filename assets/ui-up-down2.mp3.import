@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ui-up-down2.mp3-207aa6d3e68015040eed9bf50c484ef4.mp3str"
+
+[deps]
+
+source_file="res://assets/ui-up-down2.mp3"
+dest_files=[ "res://.import/ui-up-down2.mp3-207aa6d3e68015040eed9bf50c484ef4.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
