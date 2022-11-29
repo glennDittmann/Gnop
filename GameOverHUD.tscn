@@ -20,6 +20,7 @@ font_data = ExtResource( 5 )
 [node name="GameOverHUD" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 theme = ExtResource( 2 )
 script = ExtResource( 3 )
 
@@ -46,6 +47,7 @@ margin_bottom = 306.0
 margin_right = 96.0
 margin_bottom = 23.0
 focus_neighbour_top = NodePath("../BackButton")
+mouse_filter = 2
 text = "Retry"
 
 [node name="BackButton" type="Button" parent="VBoxContainer"]
@@ -53,6 +55,7 @@ margin_top = 27.0
 margin_right = 96.0
 margin_bottom = 50.0
 focus_neighbour_bottom = NodePath("../RetryButton")
+mouse_filter = 2
 text = "Back"
 
 [node name="ScoreLabel" type="Label" parent="."]

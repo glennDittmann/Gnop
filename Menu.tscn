@@ -17,6 +17,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 1.0
 margin_bottom = 1.0
+mouse_filter = 2
 theme = ExtResource( 3 )
 script = ExtResource( 1 )
 
@@ -40,6 +41,7 @@ rect_pivot_offset = Vector2( 1, 0 )
 margin_right = 112.0
 margin_bottom = 23.0
 focus_neighbour_top = NodePath("../QuitButton")
+mouse_filter = 2
 theme = SubResource( 1 )
 text = "Start"
 
@@ -47,6 +49,7 @@ text = "Start"
 margin_top = 27.0
 margin_right = 112.0
 margin_bottom = 50.0
+mouse_filter = 2
 text = "Controls"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
@@ -54,6 +57,7 @@ margin_top = 54.0
 margin_right = 112.0
 margin_bottom = 77.0
 focus_neighbour_bottom = NodePath("../StartButton")
+mouse_filter = 2
 text = "Quit"
 
 [node name="CopyrightLabel" type="Label" parent="."]
