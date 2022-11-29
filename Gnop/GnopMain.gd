@@ -13,8 +13,8 @@ var _high_score_save: HighScoreSave
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_create_or_load_save()
 	randomize()
+	_create_or_load_save()
 	screen_size = $Court.get_viewport_rect().size
 	#print("screen_size: ", screen_size)
 	slowdown_bar_increase_amount = $SlowDownBar.get_max() * POWERUP_INCREASE_RATE
