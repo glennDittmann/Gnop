@@ -40,9 +40,9 @@ func _physics_process(delta):
 		_handle_move_up()
 	elif(Input.is_action_pressed("move_down")):
 		_handle_move_down()
-	if(Input.is_action_pressed("ui_select")):
+	if(Input.is_action_pressed("time_lapse")):
 		_slow_down(delta)
-	if(Input.is_action_just_released("ui_select")):
+	if(Input.is_action_just_released("time_lapse")):
 		_slow_up()
 				
 	if not exploded:
