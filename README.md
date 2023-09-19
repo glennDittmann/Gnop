@@ -1,4 +1,4 @@
-# Cliche-Games
+# Gnop
 Submission for the Game Off 2022
 
 ### Credtis
